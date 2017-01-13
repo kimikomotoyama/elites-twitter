@@ -1,0 +1,23 @@
+<div class="post_tweet">
+  <%= form_for @tweet_input do |f| %>
+    <!-- エラーメッセージ -->
+    <% if @tweet_input.errors.any? %>
+      <div class="alert alert-danger">
+        <% @tweet_input.errors.full_messages.each do |message| %>
+          <p class="alert"><%= message %></p>
+        <% end %>
+      </div>
+    <% end %>
+    
+    <div class="form-group">
+      <div>
+        <%= f.text_area :content, class: 'form-control', placeholder: "（本文は１４０字以内で投稿）", rows: 3 %>
+      </div>
+    </div>
+    
+    <div class="actions form-group clearfix">
+      <%= f.submit "投稿", class: 'btn btn-primary pull-right' %>
+    </div>
+  <% end %>
+</div>
+   

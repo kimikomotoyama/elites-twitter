@@ -1,4 +1,9 @@
 body {
+  .clearfix:after {
+    content:" ";
+    display:block;
+    clear:both;
+  }
   div.wrapper {
     .submit {
       margin-top: 50px;
