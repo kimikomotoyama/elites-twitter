@@ -1,0 +1,15 @@
+div.wrapper {
+  margin-top: 100px;
+  padding: 30px;
+  .devise_title {
+    margin-bottom: 30px;
+  }
+  #error_explanation {
+    h2 {
+      display: none;
+    }
+    color: red;
+    margin: 0;
+    padding: 0;
+  }
+}
