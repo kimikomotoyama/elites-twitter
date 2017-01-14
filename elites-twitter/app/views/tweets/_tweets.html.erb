@@ -13,12 +13,15 @@
             NO IMAGE
           <% end %>
         </div>
-        <div class="col-md-11 information">
+        <div class="col-md-10 information">
           <div class="tweet_name"><%= link_to "@#{tweet.user.name}", user_path(tweet.user_id), { :class => "link" } %></div>
           <%= link_to edit_tweet_path(tweet.id), { :class => "link" }  do%>
             <div class="tweet_created">(<%= tweet.created_at %>)</div>
             <div class="tweet_content"><%= tweet.content %></div><br />
           <% end %>
+        </div>
+        <div class="col-md-1 show clearfix">
+          <%= link_to "詳細", tweet_path(tweet), class: "btn btn-primary show_btn" %>
         </div>
       </div>
     <% end %>
