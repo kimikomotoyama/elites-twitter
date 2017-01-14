@@ -9,6 +9,8 @@ ja:
         image: 'プロフィール画像'
         profile: 'プロフィール'
         password_confirmation: 'パスワード（確認）'
+      tweet:
+        content: '内容'
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
@@ -147,9 +149,9 @@ ja:
     select:
       prompt: 選択してください
     submit:
-      create: 登録する
+      create: 投稿
       submit: 保存する
-      update: 更新する
+      update: 内容の書き換え
     page_entries_info:
       one_page:
         display_entries:

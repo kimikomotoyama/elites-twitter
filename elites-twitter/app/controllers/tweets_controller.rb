@@ -44,6 +44,7 @@ class TweetsController < ApplicationController
     
     if tweet.valid? # バリデーションチェック
       tweet.save!
+      flash[:notice] = "投稿しました"
       redirect_to action: :index
     else
       flash[:alert] = tweet.errors.full_messages
@@ -52,6 +53,34 @@ class TweetsController < ApplicationController
   end
   
   def edit
+    @tweet_input = Tweet.find(params[:id])
+    @tweet_input.content = params[:content] if params[:content].present?
+    if params[:errors].present?
+      @errors = params[:errors] 
+      params[:content] = nil
+    end
+  end
+  
+  def update
+    puts '***************** update'
+    @tweet_input = Tweet.find(params[:id])
+    @tweet_input.attributes = tweet_input_param
+    @tweet_input.user_id = current_user.id
+    if @tweet_input.valid? # バリデーションチェック
+      @tweet_input.save!
+      flash[:notice] = "更新しました"
+      redirect_to action: :index
+    else
+      flash[:alert] = @tweet_input.errors.full_messages
+      redirect_to action: :edit, content: @tweet_input.content, errors: @tweet_input.errors.full_messages
+    end
+  end
+  
+  def destroy
+    @tweet_input = Tweet.find(params[:id])
+    @tweet_input.destroy
+    flash[:notice] = "削除しました"
+    redirect_to action: :index
   end
     
   private

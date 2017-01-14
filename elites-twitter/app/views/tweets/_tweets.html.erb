@@ -6,15 +6,19 @@
         <div class="img col-md-1">
           <!-- サムネイルの設定確認 -->
           <% if tweet.user.image? %>
-            <%= image_tag tweet.user.image.url %>
+            <%= link_to user_path(tweet.user_id) , { :class => "link" } do %>
+              <%= image_tag tweet.user.image.url %>
+            <% end %>
           <% else %>
             NO IMAGE
           <% end %>
         </div>
         <div class="col-md-11 information">
-          <div class="tweet_name"><%= link_to "@#{tweet.user.name}", user_path(tweet.user_id) %></div>
-          <div class="tweet_created">(<%= tweet.created_at %>)</div>
-          <div class="tweet_content"><%= tweet.content %></div><br />
+          <div class="tweet_name"><%= link_to "@#{tweet.user.name}", user_path(tweet.user_id), { :class => "link" } %></div>
+          <%= link_to edit_tweet_path(tweet.id), { :class => "link" }  do%>
+            <div class="tweet_created">(<%= tweet.created_at %>)</div>
+            <div class="tweet_content"><%= tweet.content %></div><br />
+          <% end %>
         </div>
       </div>
     <% end %>

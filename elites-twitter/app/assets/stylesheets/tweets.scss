@@ -21,8 +21,40 @@
   .tweet_name, .tweet_created {
     display: inline-block;
   }
-  .tweet_name {
+  .link {
+    text-decoration: none;
+    color: #585858;
+  }
+  .link *:hover{
+    opacity: 0.8;
+  }
+  .tweet_name a {
     margin-left: 0px;
     margin-right: 10px;
+    color: blue;
+  }
+}
+
+// Index page
+.index_page {
+  form {
+    .submit_btn {
+      float: right;
+    }
+  }
+}
+
+// Edit page
+.edit_page {
+  form {
+    .submit_btn {
+      display: inline-block;
+      float: right;
+    }
+    .delete_btn {
+      display: inline-block;
+      float: right;
+      margin-right: 10px;
+    }
   }
 }

@@ -1,0 +1,12 @@
+<div class="wrapper edit_page">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+      <h2>ツイート編集画面</h2>
+      <%= form_for(@tweet_input, :url => {:action => 'update'} ) do |f| %>
+        <%= render :partial => 'form', :locals => {:f => f} %>
+      <% end %>
+      <%= button_to "削除", { :action => "destroy", :id => @tweet_input.id }, :class=>"btn btn-danger delete_btn clearfix", data: {:confirm => "本当に削除しますか?"}, :method => :delete %>
+    </div>
+  </div>
+</div>
+
