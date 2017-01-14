@@ -1,4 +1,5 @@
 <div class="tweets">
+  <%= page_entries_info @tweets %>
   <% if @tweets.present? %>
     <% @tweets.each do |tweet|%>
       <div class="row each_tweet">
@@ -11,13 +12,14 @@
           <% end %>
         </div>
         <div class="col-md-11 information">
-          <div class="tweet_name"><%= link_to "@#{tweet.user.name}", "#" %></div>
+          <div class="tweet_name"><%= link_to "@#{tweet.user.name}", user_path(tweet.user_id) %></div>
           <div class="tweet_created">(<%= tweet.created_at %>)</div>
           <div class="tweet_content"><%= tweet.content %></div><br />
         </div>
       </div>
     <% end %>
+    <%= paginate @tweets %>
   <% else %>
-    まだツイートがありません。
+    ツイートがありません。
   <% end %>
 </div>

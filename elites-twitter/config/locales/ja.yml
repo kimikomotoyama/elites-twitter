@@ -150,6 +150,14 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "%{entry_name} が存在しません"
+          one: "%{entry_name}  <b>all %{count}</b>　1ページ目のみ"
+          other: "全体で <b> %{count}</b> 件　%{entry_name}"
+      more_pages:
+        display_entries: "%{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> までを表示中　全体で <b>%{total}</b> 件"
   number:
     currency:
       format:
@@ -208,3 +216,10 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後
+  views:
+    pagination:
+      first: "&laquo; 最初へ"
+      last: "最後へ &raquo;"
+      previous: "&lsaquo; 前へ"
+      next: "次へ &rsaquo;"
+      truncate: "&hellip;"

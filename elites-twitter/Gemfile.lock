@@ -97,6 +97,9 @@ GEM
     kaminari-activerecord (1.0.0)
       activerecord
       kaminari-core (= 1.0.0)
+    kaminari-bootstrap (3.0.1)
+      kaminari (>= 0.13.0)
+      rails
     kaminari-core (1.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -255,6 +258,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  kaminari-bootstrap
   less-rails
   letter_opener_web
   rails (= 4.2.7.1)
