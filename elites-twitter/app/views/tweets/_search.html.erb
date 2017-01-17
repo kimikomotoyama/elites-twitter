@@ -1,12 +1,12 @@
 <%# form_for の代わりに search_form_for を使うことで検索フォームを作成 %>
-<%= search_form_for @q do |f| %>
+<!--search_form_for @q, :url => {:controller => :tweets, :action => :index}, html: {class: 'form-inline'} do |f|-->
+<%= search_form_for @q, url: search_tweets_path, html: { method: :post }  do |f| %>
 
   <%# start 特定の文字列で始まる商品名で検索 %>
-  <%= f.label :keywords, "検索する（ユーザーネーム、内容）", class: 'control-label' %>
-  <%= f.text_field :keywords, required: false, value: params.dig(:q, :keywords), class: 'form-control' %>
-  <br />
- 
-  <%# 検索ボタン %>
-  <%= f.submit %>
+  <div class="clearfix">
+    <span class="fa fa-search errspan"></span>
+    <%= f.text_field :keywords, required: false, value: params.dig(:q, :keywords), class: 'form-control', placeholder: "検索", size: "30"  %>
+  </div>
+  
 <% end %>
 <hr />

@@ -4,6 +4,30 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_filter :set_global_search_variable
+
+  def set_global_search_variable
+    @q = nil
+    @errors = params[:errors] if params[:errors].present?
+    @tweets = Tweet.all.order('updated_at DESC').page(params[:page])
+    @tweet_input = Tweet.new(content: params[:content]) 
+    keyword = "#{params.dig(:q, :keywords)}"
+    
+    @q = Tweet.with_keywords(params.dig(:q, :keywords)).ransack(params[:q])
+    user = User.find_by_name(params.dig(:q, :keywords))
+    if @q.present? || user.present?
+      if @q.result.present? && user.present? 
+        @tweets = @q.result.page(params[:page])
+        @tweets = user.tweets.page(params[:page])
+      elsif @q.result.present? 
+        @tweets = @q.result.order('updated_at DESC').page(params[:page])
+      elsif user.present?
+        @tweets = user.tweets.order('updated_at DESC').page(params[:page])
+      else
+        @tweets = nil
+      end
+    end
+  end
   
   def after_sign_in_path_for(resource)
     tweets_index_path

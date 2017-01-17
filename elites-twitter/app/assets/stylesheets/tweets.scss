@@ -62,3 +62,21 @@
     
   }
 }
+
+//Search
+#tweet_search {
+  input {
+    border-radius: 50px;
+  }
+  button {
+    border-radius: 50px;
+  }
+  .errspan {    
+    float: left;
+    top: 23px;
+    left: 230px;
+    position: relative;
+    z-index: 2;
+    color: grey;
+  }
+}
