@@ -2,21 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.tweets {
+#tweet_boxes, #tweet_box {
   .each_tweet {
-    // border-right: 1px solid #cccccc;
-    // border-bottom: 1px solid #cccccc;
     border: 1px solid #cccccc;
     border-radius: 3px;
-    height: 100px;
+    height: auto;
   }
   .information *{
-    margin-left: 5px;
+    //margin-left: 5px;
   }
-  .img img {
-    width: 90px;
-    height: 90px;
-    padding: 5px;
+  .img a {
+    display: inline-block;
+    img {
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      margin: 0;
+    }
   }
   .tweet_name, .tweet_created {
     display: inline-block;
@@ -30,7 +32,7 @@
   }
   .tweet_name a {
     margin-left: 0px;
-    margin-right: 10px;
+    //margin-right: 10px;
     color: blue;
   }
   .show_btn {
@@ -60,4 +62,9 @@
       margin-right: 10px;
     }
   }
+}
+
+//Show page
+.show_page {
+  
 }

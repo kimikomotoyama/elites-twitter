@@ -1,0 +1,7 @@
+<div id="tweet_box" class="wrapper show_page">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+        <%= render :partial => 'tweet_box', :locals => {:tweet => Tweet.find(params[:id])} %></div>
+    </div>
+  </div>
+</div>

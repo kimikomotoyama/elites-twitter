@@ -1,0 +1,21 @@
+<div class="row each_tweet">
+  <div class="img col-xs-3 col-sm-1 col-md-1">
+    <!-- サムネイルの設定確認 -->
+    <% if tweet.user.image? %>
+      <%= link_to image_tag(tweet.user.image.url), user_path(tweet.user_id), {:class => "link"} %>
+    <% else %>
+      NO IMAGE
+    <% end %>
+  </div>
+  <div class="col-xs-6 col-sm-9 col-md-9 information">
+    <div class="row">
+      <div class="tweet_name col-xs-12 col-sm-4 col-md-5"><%= link_to "@#{tweet.user.name}", user_path(tweet.user_id), { :class => "link" } %></div>
+      <div class="tweet_created col-xs-12 col-sm-4 col-md-5">(<%= tweet.created_at %>)</div>
+    </div>
+    <div class="row">
+      <%= link_to edit_tweet_path(tweet.id), { :class => "link col-xs-12 col-sm-12 col-md-12"}  do%>
+        <div class="tweet_content"><%= tweet.content %></div>
+      <% end %>
+    </div>
+  </div>
+  
