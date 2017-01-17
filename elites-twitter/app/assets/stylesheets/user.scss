@@ -19,6 +19,11 @@ div.wrapper {
 
 .user_profile {
   margin-bottom: 30px;
+  .thumbnail_img {
+  img {
+    max-height: 150px;
+  }
+}
   .profile_name, .profile_content {
     font-weight: bold;
   }

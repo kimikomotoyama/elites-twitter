@@ -1,0 +1,8 @@
+<!-- サムネイルの設定確認 -->
+<div class="thumbnail_img">
+  <% if user.image? %>
+      <%= link_to image_tag(user.image.url, :class => "img-responsive"), user_path(user), {:class => "link"} %>
+  <% else %>
+      NO IMAGE
+  <% end %>
+</div>

@@ -1,11 +1,6 @@
 <!--need div row each_tweet-->
 <div class="img col-xs-2 col-sm-2 col-md-2">
-  <!-- サムネイルの設定確認 -->
-  <% if tweet.user.image? %>
-    <%= link_to image_tag(tweet.user.image.url, :class => "img-responsive"), user_path(tweet.user_id), {:class => "link"} %>
-  <% else %>
-    NO IMAGE
-  <% end %>
+  <%= render :partial => 'tweets/thumbnail', :locals => {:user => tweet.user} %>
 </div>
 <div class="col-xs-7 col-sm-8 col-md-8 information">
   <div class="row">

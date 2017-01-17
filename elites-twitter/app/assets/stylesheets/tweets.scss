@@ -2,9 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.thumbnail_img {
+  img {
+    max-height: 90px;
+  }
+}
+
 #tweet_boxes, #tweet_box {
+  
   .each_tweet {
     border: 1px solid #cccccc;
+    padding: 15px;
     border-radius: 3px;
     height: auto;
   }
@@ -23,6 +31,9 @@
   .tweet_name a {
     margin-left: 0px;
     color: blue;
+  }
+  .tweet_content {
+    margin-top: 5px;
   }
   .show_btn {
     margin-top: 20px;
@@ -68,13 +79,10 @@
   input {
     border-radius: 50px;
   }
-  button {
-    border-radius: 50px;
-  }
-  .errspan {    
-    float: left;
+  .errspan {
+    float: right;
     top: 23px;
-    left: 230px;
+    right: 12px;
     position: relative;
     z-index: 2;
     color: grey;

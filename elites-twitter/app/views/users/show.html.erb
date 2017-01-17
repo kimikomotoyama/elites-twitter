@@ -3,33 +3,22 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
       <div class="row user_profile">
-        <div class="col-xs-4 col-sm-4 col-md-4 profile_pic">
-          <!-- サムネイルの設定確認 -->
-        <% if @user.image? %>
-          <%= link_to image_tag(@user.image.url, :class => "img-responsive"), user_path(@user) %>
-        <% else %>
-          <div class="border">NO IMAGE</div>
-        <% end %>
+        <div class="col-xs-3 col-sm-2 col-md-2 profile_pic">
+          <%= render :partial => '/tweets/thumbnail', :locals => {:user => @user} %>
         </div>
         <div class="col-xs-8 col-sm-8 col-md-8 contents">
           <div class="row">
-            <div class="profile_name col-md-6">@<%= @user.name %></div>
-            <div class="last_login col-md-6">最終ログイン日：<%= @user.last_sign_in_at %></div>
+            <div class="profile_name col-sm-4 col-md-4">@<%= @user.name  %></div>
+            <div class="last_login col-sm-8 col-md-8">最終ログイン日：<%= @user.last_sign_in_at %></div>
             <div class="col-md-12 top-buffer">プロフィール</div>
-            <div class="profile_content col-md-12 top-buffer"><%= @user.profile %></div>
+            <div class="profile_content col-md-12 top-buffer"><%= @user.profile %>
+            </div>
           </div>
         </div>
       </div>
-      <% if @tweets.present? %>
-        <% @tweets.each do |tweet| %>
-          <%= render :partial => '/tweets/tweet_box', :locals => {:tweet => tweet } %>
-            <div class="col-xs-3 col-sm-2 col-md-2 show">
-            <%= link_to "詳細", tweet_path(tweet), class: "btn btn-primary show_btn" %></div></div>
-        <% end %>
-        <%= paginate @tweets %>
-      <% else %>
-        ツイートがありません。
-      <% end %>
+      <div class="lg_top_buffer" style="margin-top: 50px">
+        <%= render 'tweets/tweets'%>
+      </div>
     </div>
   </div>
 </div>

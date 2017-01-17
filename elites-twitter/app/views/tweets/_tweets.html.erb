@@ -1,14 +1,11 @@
 <div id="tweet_boxes">
-  
   <% if @tweets.present? %>
     <%= page_entries_info @tweets %>
     <% @tweets.each do |tweet|%>
-    <div class="row each_tweet">
-      <%= render :partial => 'tweet_box', :locals => {:tweet => tweet} %>
-        <div class="col-xs-3 col-sm-2 col-md-2 show clearfix">
-          <%= link_to "詳細", tweet_path(tweet), class: "btn btn-primary show_btn img-responsive pull-right" %>
-        </div>
-    </div>
+      <div class="row each_tweet">
+        <%= render :partial => 'tweets/tweet_box', :locals => {:tweet => tweet} %>
+        <%= render :partial => 'tweets/link_to_tweet_show', :locals => {:tweet => tweet} %>  
+      </div>
     <% end %>
     <% if @tweets.present? %>
       <%= paginate @tweets %>
