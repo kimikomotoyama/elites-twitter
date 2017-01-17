@@ -13,21 +13,18 @@
         </div>
         <div class="col-xs-8 col-sm-8 col-md-8 contents">
           <div class="row">
-            <div class="profile_name col-md-6">@<%= @user.name  %></div>
+            <div class="profile_name col-md-6">@<%= @user.name %></div>
             <div class="last_login col-md-6">最終ログイン日：<%= @user.last_sign_in_at %></div>
             <div class="col-md-12 top-buffer">プロフィール</div>
-            <div class="profile_content col-md-12 top-buffer">
-              Lorem ipsum dolor sit amet, euismod facilis tractatos vix ut,
-              eu eos veri facilisi sensibus, nec illum congue in. Eam clita
-              feugiat liberavisse cu. Movet discere his te, soluta labore ancillae
-              ne nec. Possit habemus eu qui.
-            </div>
+            <div class="profile_content col-md-12 top-buffer"><%= @user.profile %></div>
           </div>
         </div>
       </div>
       <% if @tweets.present? %>
         <% @tweets.each do |tweet| %>
-          <%= render :partial => '/tweets/tweet_box', :locals => {:tweet => tweet } %></div>
+          <%= render :partial => '/tweets/tweet_box', :locals => {:tweet => tweet } %>
+            <div class="col-xs-3 col-sm-2 col-md-2 show">
+            <%= link_to "詳細", tweet_path(tweet), class: "btn btn-primary show_btn" %></div></div>
         <% end %>
         <%= paginate @tweets %>
       <% else %>
