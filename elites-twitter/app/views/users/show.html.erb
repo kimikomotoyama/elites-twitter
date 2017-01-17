@@ -1,2 +1,38 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<!--users/show.html.erb-->
+<div id="tweet_boxes" class="wrapper show_user_page">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+      <div class="row user_profile">
+        <div class="col-xs-4 col-sm-4 col-md-4 profile_pic">
+          <!-- サムネイルの設定確認 -->
+        <% if @user.image? %>
+          <%= link_to image_tag(@user.image.url, :class => "img-responsive"), user_path(@user) %>
+        <% else %>
+          <div class="border">NO IMAGE</div>
+        <% end %>
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 contents">
+          <div class="row">
+            <div class="profile_name col-md-6">@<%= @user.name  %></div>
+            <div class="last_login col-md-6">最終ログイン日：<%= @user.last_sign_in_at %></div>
+            <div class="col-md-12 top-buffer">プロフィール</div>
+            <div class="profile_content col-md-12 top-buffer">
+              Lorem ipsum dolor sit amet, euismod facilis tractatos vix ut,
+              eu eos veri facilisi sensibus, nec illum congue in. Eam clita
+              feugiat liberavisse cu. Movet discere his te, soluta labore ancillae
+              ne nec. Possit habemus eu qui.
+            </div>
+          </div>
+        </div>
+      </div>
+      <% if @tweets.present? %>
+        <% @tweets.each do |tweet| %>
+          <%= render :partial => '/tweets/tweet_box', :locals => {:tweet => tweet } %></div>
+        <% end %>
+        <%= paginate @tweets %>
+      <% else %>
+        ツイートがありません。
+      <% end %>
+    </div>
+  </div>
+</div>

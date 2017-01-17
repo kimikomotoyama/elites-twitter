@@ -1,13 +1,13 @@
 <div class="row each_tweet">
-  <div class="img col-xs-3 col-sm-1 col-md-1">
+  <div class="img col-xs-3 col-sm-3 col-md-3">
     <!-- サムネイルの設定確認 -->
     <% if tweet.user.image? %>
-      <%= link_to image_tag(tweet.user.image.url), user_path(tweet.user_id), {:class => "link"} %>
+      <%= link_to image_tag(tweet.user.image.url, :class => "img-responsive"), user_path(tweet.user_id), {:class => "link"} %>
     <% else %>
       NO IMAGE
     <% end %>
   </div>
-  <div class="col-xs-6 col-sm-9 col-md-9 information">
+  <div class="col-xs-6 col-sm-7 col-md-7 information">
     <div class="row">
       <div class="tweet_name col-xs-12 col-sm-4 col-md-5"><%= link_to "@#{tweet.user.name}", user_path(tweet.user_id), { :class => "link" } %></div>
       <div class="tweet_created col-xs-12 col-sm-4 col-md-5">(<%= tweet.created_at %>)</div>
@@ -18,4 +18,5 @@
       <% end %>
     </div>
   </div>
+<!--must close a div where it's rendering from -->
   

@@ -17,3 +17,15 @@ div.wrapper {
     margin-bottom: 30px;
   }
 }
+
+.user_profile {
+  margin-bottom: 30px;
+  .profile_name, .profile_content {
+    font-weight: bold;
+  }
+  .last_login {
+    color: red;
+  }
+}
+
+
