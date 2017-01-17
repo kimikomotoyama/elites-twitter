@@ -32,8 +32,6 @@ class TweetsController < ApplicationController
       else
         @tweets = nil
       end
-      
-      
     end
   end
   
@@ -45,10 +43,18 @@ class TweetsController < ApplicationController
     if tweet.valid? # バリデーションチェック
       tweet.save!
       flash[:notice] = "投稿しました"
-      redirect_to action: :index
+      if tweet.reply_tweet_id.present?
+        redirect_to action: :show, :id => tweet.reply_tweet_id
+      else
+        redirect_to action: :index
+      end
     else
       flash[:alert] = tweet.errors.full_messages
-      redirect_to action: :index, content: tweet.content, errors: tweet.errors.full_messages
+      if tweet.reply_tweet_id.present?
+        redirect_to action: :show, :id => tweet.reply_tweet_id, content: tweet.content, errors: tweet.errors.full_messages
+      else
+        redirect_to action: :index, content: tweet.content, errors: tweet.errors.full_messages
+      end
     end
   end
   
@@ -76,13 +82,24 @@ class TweetsController < ApplicationController
     end
   end
   
+  def show
+    @current_user = User.find(current_user.id)
+    @tweet = Tweet.find(params[:id])
+    @reply_tweets = Tweet.where(["reply_tweet_id = ?", @tweet.id]).order('updated_at DESC').page(params[:page])
+    
+    #reply
+    @tweet_input = Tweet.new(content: params[:content]) 
+    @errors = params[:errors] if params[:errors].present?
+    
+  end
+  
   def destroy
     @tweet_input = Tweet.find(params[:id])
     @tweet_input.destroy
     flash[:notice] = "削除しました"
     redirect_to action: :index
   end
-    
+  
   private
   def tweet_input_param
     params.require(:tweet).permit(:user_id, :reply_tweet_id, :content)

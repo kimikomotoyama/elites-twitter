@@ -1,23 +1,15 @@
-<div class="post_tweet">
-  
-    <!-- エラーメッセージ -->
-    <% if @errors.present? %>
-      <div class="error">
-        <% @errors.each do |message| %>
-          <p class="alert"><%= message %></p>
-        <% end %>
-      </div>
+<!-- エラーメッセージ -->
+<% if @errors.present? %>
+  <div class="error">
+    <% @errors.each do |message| %>
+      <p class="alert"><%= message %></p>
     <% end %>
-    
-    <div class="form-group">
-      <div>
-        <%= f.text_area :content, :value => @tweet_input.try(:content), class: 'form-control', placeholder: "（本文は１４０字以内で投稿）", rows: 3 %>
-      </div>
-    </div>
-    
-    <div class="actions form-group">
-      <%= f.submit class: 'btn btn-primary submit_btn' %>
-    </div>
-  
+  </div>
+<% end %>
+
+<div class="form-group">
+  <div>
+    <%= f.text_area :content, :value => @tweet_input.try(:content), class: 'form-control', placeholder: "（本文は１４０字以内で投稿）", rows: 3 %>
+  </div>
 </div>
-   
+    

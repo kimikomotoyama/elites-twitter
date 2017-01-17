@@ -1,6 +1,7 @@
 ---
 ja:
   activerecord:
+    tweets: 'ツイート'
     attributes:
       user:
         name: 'ユーザーネーム'
@@ -155,7 +156,7 @@ ja:
     page_entries_info:
       one_page:
         display_entries:
-          zero: "%{entry_name} が存在しません"
+          zero: "%{entry_name} がまだありません"
           one: "%{entry_name}  <b>all %{count}</b>　1ページ目のみ"
           other: "全体で <b> %{count}</b> 件　%{entry_name}"
       more_pages:
