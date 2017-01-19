@@ -8,8 +8,14 @@
     <div class="tweet_created col-xs-12 col-sm-4 col-md-5">(<%= tweet.created_at %>)</div>
   </div>
   <div class="row">
-    <%= link_to edit_tweet_path(tweet.id), { :class => "link col-xs-12 col-sm-12 col-md-12"}  do%>
-      <div class="tweet_content"><%= tweet.content %></div>
+    <% if current_user.id == tweet.user_id %>
+      <%= link_to edit_tweet_path(tweet.id), { :class => "link col-xs-12 col-sm-12 col-md-12"}  do%>
+        <div class="tweet_content"><%= tweet.content %></div>
+      <% end %>
+    <% else %>
+      <div class = "col-xs-12 col-sm-12 col-md-12">
+        <div class="tweet_content"><%= tweet.content %></div>
+      </div>
     <% end %>
   </div>
 </div>

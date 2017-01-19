@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   def set_global_search_variable
     @q = nil
     @errors = params[:errors] if params[:errors].present?
+    puts "************errors: #{@errors.first}" if params[:errors].present?
     @tweets = Tweet.all.order('updated_at DESC').page(params[:page])
     @tweet_input = Tweet.new(content: params[:content]) 
     keyword = "#{params.dig(:q, :keywords)}"

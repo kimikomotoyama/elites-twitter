@@ -34,9 +34,14 @@ class TweetsController < ApplicationController
   
   def edit
     @tweet_input = Tweet.find(params[:id])
+    if current_user.id != @tweet_input.user_id
+      redirect_to action: :index, errors: ["自分以外のツイートは編集・削除できません。"]
+    end
     @tweet_input.content = params[:content] if params[:content].present?
     if params[:errors].present?
+      puts '***************errors exist in error'
       @errors = params[:errors] 
+      puts @errors.first
       params[:content] = nil
     end
   end
@@ -63,7 +68,7 @@ class TweetsController < ApplicationController
     
     #reply
     @tweet_input = Tweet.new(content: params[:content]) 
-    @errors = params[:errors] if params[:errors].present?
+    # @errors = params[:errors] if params[:errors].present?
     
   end
   
