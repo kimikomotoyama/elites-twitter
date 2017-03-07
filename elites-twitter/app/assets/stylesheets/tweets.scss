@@ -1,0 +1,90 @@
+// Place all the styles related to the Tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.thumbnail_img {
+  img {
+    max-height: 90px;
+  }
+}
+
+#tweet_boxes, #tweet_box {
+  
+  .each_tweet {
+    border: 1px solid #cccccc;
+    padding: 15px;
+    border-radius: 3px;
+    height: auto;
+  }
+  .information *{
+  }
+  .tweet_name, .tweet_created {
+    display: inline-block;
+  }
+  .link {
+    text-decoration: none;
+    color: #585858;
+  }
+  .link *:hover{
+    opacity: 0.8;
+  }
+  .tweet_name a {
+    margin-left: 0px;
+    color: blue;
+  }
+  .tweet_content {
+    margin-top: 5px;
+  }
+  .show_btn {
+    margin-top: 20px;
+  }
+}
+
+// Index page
+.index_page {
+  form {
+    .submit_btn {
+      float: right;
+    }
+  }
+}
+
+// Edit page
+.edit_page {
+  form {
+    .submit_btn {
+      display: inline-block;
+      float: right;
+    }
+    .delete_btn {
+      display: inline-block;
+      float: right;
+      margin-right: 10px;
+    }
+  }
+}
+
+//Show page
+.show_page {
+  .submit_btn {
+    float: right;
+  }
+  .error {
+    
+  }
+}
+
+//Search
+#tweet_search {
+  input {
+    border-radius: 50px;
+  }
+  .errspan {
+    float: right;
+    top: 23px;
+    right: 12px;
+    position: relative;
+    z-index: 2;
+    color: grey;
+  }
+}

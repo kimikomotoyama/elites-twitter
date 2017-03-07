@@ -1,0 +1,35 @@
+div.wrapper {
+  padding: 30px;
+  .devise_title {
+    margin-bottom: 30px;
+  }
+  #error_explanation {
+    h2 {
+      display: none;
+    }
+    color: red;
+    margin-bottom: 30px;
+  }
+  .error {
+    color: red;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+
+.user_profile {
+  margin-bottom: 30px;
+  .thumbnail_img {
+  img {
+    max-height: 150px;
+  }
+}
+  .profile_name, .profile_content {
+    font-weight: bold;
+  }
+  .last_login {
+    color: red;
+  }
+}
+
+

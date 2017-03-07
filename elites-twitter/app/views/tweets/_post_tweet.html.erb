@@ -1,0 +1,10 @@
+<%= form_for(@tweet_input, :url => {:action => 'create'} ) do |f| %>
+  <div class="post_tweet">
+    <%= render :partial => 'tweets/form', :locals => {:f => f} %>
+    <div class="actions form-group">
+      <%= f.submit class: 'btn btn-primary submit_btn' %>
+    </div>
+</div>
+   
+  <div class="clearfix"></div>
+<% end %>
